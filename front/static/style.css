@@ -1,0 +1,18 @@
+article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    width: 10vw;
+    margin: 1vh;
+}
+article header {
+    display: flex;
+    flex-direction: row;
+}
+
+#avatar {
+    width:1.5vw;
+    height: 1.5vw;
+}
