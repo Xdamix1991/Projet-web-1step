@@ -27,8 +27,37 @@
 
     </header>
     
+
     <main>
 
+    <h2>Préférences du site</h2>
+
+    <div id="themesDuSite">
+        <form action="">
+            <label for="themeSite">Théme du site</label>
+            <select name="themeSite" id="themeSite">
+                <option value="Clair" selected>clair</option>
+                <option value="Sombre">sombre</option>
+            </select>
+        </form>
+
+        <form action="">
+            <p>Format d'affichage de la liste des apprenants</p>
+
+            <label for="Lst">Liste</label>
+            <input type="radio" name="choixAffiche" id="Lst" checked>
+
+            <label for="Crt">Cartes</label>
+            <input type="radio" name="choixAffiche" id="Crt">
+        </form>
+
+
+        <a href="index.html">Retour à la page d'acceuil</a>
+        <button id="enregisterTheme" type="submit">Enregistrer</button>
+
+    </div>
+
     </main>
+
 </body>
 </html>
