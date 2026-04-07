@@ -16,3 +16,9 @@ article header {
     width:1.5vw;
     height: 1.5vw;
 }
+
+#map {
+    height: 400px;
+    min-height: 400px;
+    width: 600px;
+}

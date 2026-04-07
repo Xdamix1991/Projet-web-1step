@@ -1,16 +1,52 @@
 const divAffichage = document.getElementById('listesApprenants')
 const divAffichageCards = document.getElementById('cardsApprenants')
+const affichageAcceuil = document.getElementById('affichageAcc')
+
+let etudiants;
+
+async function init() {
+    const res = await fetch('/Projet-web-1step/front/assets/promo.json');
+    if (!res.ok) {
+        const message = `An error has occured: ${res.status}`;
+        throw new Error(message);
+    }
+    const data = await res.json();
+    etudiants = data.apprenants;
+
+    const saved = localStorage.getItem('affichage');
+    if (saved) {
+        document.querySelector(
+        `input[name="TypeAffichages"][value="${saved}"]`
+    ).checked = true;
+}
+/* afaire
+    const theme = localStorage.getItem('theme')
+    if (theme == 'sombre') {
+
+    }
+    else {
+
+    }
+        */
+
+    typeAffichage()
+}
+init()
+
+//type d affichage Set
+
+affichageAcceuil.addEventListener('change', () => {
+    const value = affichageAcceuil.TypeAffichages.value
+
+    localStorage.setItem("affichage", value)
+
+    typeAffichage()
+})
+
+
 
 //REcuperation des etuadiants 
-const res = await fetch('/Projet-web-1step/front/assets/promo.json')
-// verification de la reponse  
-if (!res.ok) {
-    const message = `An error has occured: ${res.status}`;
-    throw new Error(message);
-  }
-// traitement de la data
-const data = await res.json()
-const etudiants = data.apprenants
+
 
 
 
@@ -20,7 +56,7 @@ function affichageListe (){
 
 const table = document.createElement('table')
 
-table.innerHTML = `<table class="tableListe">
+table.innerHTML = `
             <thead>
                 <tr>
                     <th>Nom</th>
@@ -30,7 +66,7 @@ table.innerHTML = `<table class="tableListe">
                 </tr>
             </thead>
             <tbody id="table-body"></tbody>
-        </table>`
+        `
 
 const tbody = table.querySelector('#table-body')
 etudiants.forEach(etudiant => {
@@ -39,6 +75,7 @@ etudiants.forEach(etudiant => {
                 <td>${etudiant.nom}</td>
                 <td>${etudiant.prenom}</td>
                 <td>${etudiant.ville}</td>
+                <td>${etudiant.coordonnees.latitude, etudiant.coordonnees.longitude}</td>
                 <td><a href="#">details</a></td>
     
     `
@@ -79,12 +116,42 @@ divAffichageCards.appendChild(cards)
 
 }
 
-affichageCards()
-
 //verification de type d affichage souhaité
 function typeAffichage () {
 
+    const affichages = localStorage.getItem('affichage')
+    console.log(affichages)
+
+    //netoie pour eviter la duplicatiuon
+
+    divAffichage.innerHTML = "";
+    divAffichageCards.innerHTML = "";
+
+    if (affichages == "cartes") {
+        affichageCards ()
+    }
+   else {
+        affichageListe()
+    }
+
 }
+
+//verification de type d affichage souhaité
+
 
 //gestion des types d'affichages sauvegardés
 console.log(etudiants)
+
+
+
+//lacarte 
+
+let map = L.map('map', {
+    center: [51.505, -0.09],
+    zoom: 13
+});
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
