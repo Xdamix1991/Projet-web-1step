@@ -12,25 +12,21 @@ export function affichageModal (etudiant) {
                         
                         <img id="avatar" src="/Projet-web-1step/front/assets/avatar.png" alt="">
                         <div id ="nom">
-                        <h2>${etudiant.nom}</h2>
-                        <h3>${etudiant.prenom}</h3>
+                        <h2 class="ligne"><span>Nom :</span> <span>${etudiant.nom}</span></h2>
+                        <h3 class="ligne"><span>Prénom :</span> <span>${etudiant.prenom}</span></h3>
+                        <h3 class="ligne"><span>Ville :</span> <span>${etudiant.ville}</span></h3>
                         </div>
 
                 </header>
-
+            <p>Anecdotes sur l'apprenant :</p>
             <div class="modalBody">
-                <p>Anecdotes sur l'apprenant :</p>
+                
                 <p>${etudiant.anecdotes}</p>                
             </div>
-
-            <div class="modalLocation">
-                <p>${etudiant.ville}</p>
-                <a href="#" id = "btn_open">details</a>
-            </div>
-
     
-    `
-divModal.innerHTML = ''; // netoyage de l'ancienne modale
+`
+
+divModal.innerHTML = '';
 divModal.appendChild(container)
 divModal.showModal();
 
