@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Projet-web-1step/front/static/style.css">
     <link rel="stylesheet" href="/Projet-web-1step/front/static/listesCards.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
+
+
      
     <title>PromoENI - Accueil</title>
 
@@ -44,15 +46,59 @@
     
     <main>
         <h2>Carte</h2>
+        
         <div id="map"></div>
     </main>
 
+    <!-- script import de layer leaflet  -->  
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="importmap">
+    {
+        "imports": {
+            "leaflet": "https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.js"
+        }
+    }
+</script>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
-        <script type="module" src="/Projet-web-1step/front/static/clairSombre.js"></script>
-    
+<!--  script map integrer ici pour probleme de module et la variable L de leaftlet impossible a recuperer  -->  
+<script>
+(async function () {
+    // Initialisation de la carte
+    const map = L.map('map').setView([51.505, -0.09], 11);
+
+    L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Récupération des données
+    const res = await fetch('/Projet-web-1step/front/assets/promo.json');
+    const data = await res.json();
+
+    const etudiants = data.apprenants;
+
+    // Ajout des marqueurs
+    etudiants.forEach(etudiant => {
+        const lat = etudiant.coordonnees.latitude;
+        const long = etudiant.coordonnees.longitude;
+
+        // Déplacer la vue (optionnel, ici centré sur chaque étudiant)
+        map.setView([lat, long], 18);
+
+        // Ajouter un marqueur
+        L.marker([lat, long])
+            .addTo(map)
+            .bindPopup(etudiant.nom)
+            .openPopup();
+    });
+
+})();
+</script>
+
+    <script  type="module" src="/Projet-web-1step/front/static/carte.js"></script>
+    <script src="/Projet-web-1step/front/static/clairSombre.js"></script>
+
+
+
     
 </body>
 </html>

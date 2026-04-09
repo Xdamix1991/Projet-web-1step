@@ -3,6 +3,9 @@ const divAffichageCards = document.getElementById('cardsApprenants')
 const affichageAcceuil = document.getElementById('affichageAcc')
 import { affichageModal } from "./modal.js";
 
+
+
+
 let etudiants;
 
 async function init() {
@@ -63,7 +66,7 @@ table.innerHTML = `
                     <th>Nom</th>
                     <th>Prénom</th>
                     <th>Ville</th>
-                    <th>Coordonnées</th>
+
                     <th>Détails</th>
                 </tr>
             </thead>
@@ -77,8 +80,8 @@ etudiants.forEach(etudiant => {
             
                 <td>${etudiant.nom}</td>
                 <td>${etudiant.prenom}</td>
-                <td>${etudiant.ville}</td>
-                <td>${etudiant.coordonnees.latitude}, ${etudiant.coordonnees.longitude}</td>
+                <td><a href="carte.html" id="open_carte">${etudiant.ville} </a></td>
+
                 <td><button class="details-btn">Détails</button></td>
     
     `
@@ -88,7 +91,7 @@ etudiants.forEach(etudiant => {
     tr.querySelector('.details-btn').addEventListener('click', () => {
         
         affichageModal(etudiant)
-        affichePosition(etudiant);
+        
 
     })
 });
@@ -123,6 +126,7 @@ etudiants.forEach(etudiant => {
                 </div>
                 <div>
                     <a href="#" id = "btn_open">details</a>
+                    <a href="carte.html" id="open_carte">Carte</a>
                 </div>
             </div>
         </div>
@@ -163,39 +167,5 @@ function typeAffichage () {
 
 
 //gestion des types d'affichages sauvegardés
-console.log(etudiants)
 
-
-
-//lacarte intégration code fourni
-
-let map = L.map('map', {
-    center: [51.505, -0.09],
-    zoom: 13
-});
-
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-
-L.marker([51.505, -0.09])
-    .addTo(map)
-    .bindPopup("repére")
-    .openPopup();
-
-
-    // fonction pour integration coordonnées json
-function affichePosition(etudiant) {
-
-    const lat = etudiant.coordonnees.latitude
-    const long = etudiant.coordonnees.longitude
-    map.setView([lat, long], 18)
-
-    L.marker([lat, long])
-        .addTo(map)
-        .bindPopup('ici')
-        .openPopup()
     
-}
-
