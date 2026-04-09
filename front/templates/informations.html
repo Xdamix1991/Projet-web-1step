@@ -3,25 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Projet-web-1step/front/static/style.css">
+    <link rel="stylesheet" href="/Projet-web-1step/front/static/infoPreferences.css">
     <title>PromoENI - Accueil</title>
 </head>
 <body>
     <header>
         <div class="logoEni">
+            <div class="logo">
             <img id="logoEni" src="/Projet-web-1step/front/assets/logo.png" alt="image du logo de ecole eni">
+            <h3>ECOLE <br>INFORMATIQUE</h3>
+            </div>
+
+            <h1 id="titrePage">Promos 2603</h1>
         </div>
 
-        <h1 id="titrePage">Informations</h1>
+        
 
         <nav>
-            <a href="#" id="Burguer-btn">&#9776</a>
-            <ul>
+            <div class="menu">
+            <a href="#" id="burger">&#9776</a>
+            <ul id="nav">
                 <li> <a href="index.html">Accueil</a></li>
                 <li> <a href="preferences.html">Préferences</a></li>
                 <li> <a href="carte.html">Carte</a></li>
                 <li> <a href="informations.html">Informations</a></li>
             </ul>
+            </div>
+            
+
         </nav>
+
     </header>
     
     <main>
@@ -40,27 +52,28 @@
                 
             </article>
 
-            <article>
+            <aside>
                 <div id="liens-utiles">
                     <h3>Liens utiles </h3>
                     <ol>
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer"></a>****</li>
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer"></a>****</li>
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer"></a>***</li>
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer"></a>***</li>
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer"></a>***</li>
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer"></a>****</li>
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer"></a>****</li>
-                        <li><a href="http://" target="_blank" rel="noopener noreferrer"></a>*****</li>
+                        <li><a href="http://" target="_blank" rel="noopener noreferrer">cours1....</a></li>
+                        <li><a href="http://" target="_blank" rel="noopener noreferrer">cours2.....</a></li>
+                        <li><a href="http://" target="_blank" rel="noopener noreferrer">cours3.....</a></li>
+                        <li><a href="http://" target="_blank" rel="noopener noreferrer">cours4.....</a></li>
+                        <li><a href="http://" target="_blank" rel="noopener noreferrer">cours5.....</a></li>
+                        <li><a href="http://" target="_blank" rel="noopener noreferrer">cours6......</a></li>
+
                     </ol>
                 </div>
-            </article>
+            </aside>
 
         </section>
 
         <a href="index.html">Retour à la page d'acceuil</a>
 
     </main>
-   
+
+   <script type="module" src="/Projet-web-1step/front/static/button.js"></script>
+    <script type="module" src="/Projet-web-1step/front/static/clairSombre.js"></script>
 </body>
 </html>

@@ -1,0 +1,164 @@
+
+
+#cardsApprenants{
+    max-width: 90vw;
+    
+    display: grid;
+    gap: 80px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    align-items: center;
+
+}
+.informationEtudiant {
+
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height:300px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+   
+}
+
+.informationEtudiant:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+
+.informationEtudiant .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    color: white;
+    background-color:  #0056b3;
+}
+
+/* Nom / prénom */
+.informationEtudiant .nom h3 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+
+}
+
+.informationEtudiant .nom h4 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #dfdddd;
+}
+
+
+.informationEtudiant img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+}
+
+
+.informationEtudiant .content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: white;
+}
+
+.informationEtudiant .content p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+    padding-bottom: 75px;
+}
+
+.informationEtudiant .content a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.informationEtudiant .content a:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+/* Tableau */
+
+
+
+#listesApprenants table {
+    width: 70vw;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    font-family: Arial, sans-serif;
+
+}
+
+/* Header */
+#listesApprenants thead {
+
+    color: white;
+
+ 
+}
+
+
+
+#listesApprenants th {
+    padding: 16px;
+    text-align: center;
+
+    font-weight: 600;
+    font-size: 2rem;
+        background-color:  #0056b3;
+        border: #a5cbf3 solid;
+        border-radius: 10px;
+
+}
+
+/* Cellules */
+#listesApprenants td {
+    padding: 14px 16px;
+    border: #a5cbf3 solid;
+        border-radius: 10px;
+        background-color: #faf5f5;
+    font-size: 1rem;
+    color: #000000;
+}
+
+
+
+/* Hover */
+#listesApprenants tbody td:hover {
+    background-color: #eef3ff;
+    transition: 0.2s;
+}
+
+td  {
+    text-align: center;
+}
+/* Bouton */
+#listesApprenants .details-btn {
+    font-size: 1.2rem;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #25dd0d;
+    color: black;
+    padding: 8px 12px;
+    border-radius: 6px;
+  
+}

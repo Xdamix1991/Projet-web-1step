@@ -14,14 +14,29 @@ btnPreferences.addEventListener('click', () => {
 
         localStorage.setItem("theme", theme);
         localStorage.setItem("affichage", listCards);
-
+        
+    if (theme === "Sombre") {
+    document.body.classList.add("dark");
+  } else {
+    document.body.classList.remove("dark");
+  }
 
         }
 
     )
 
+document.addEventListener("DOMContentLoaded", () => {
+    const themeCS = localStorage.getItem("theme")
+    if (themeCS === "Sombre") {
+    document.body.classList.add("dark");
+  } else {
+    document.body.classList.remove("dark");
+  }
+})
 
-//page d'accaeuil Préference Affichage
+
+//page d'accaeuil Préference Theme
+
 
 //index html acceuil
 

@@ -3,24 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Projet-web-1step/front/static/modal.css">
     <link rel="stylesheet" href="/Projet-web-1step/front/static/style.css">
-     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    <link rel="stylesheet" href="/Projet-web-1step/front/static/listesCards.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
+     
     <title>PromoENI - Accueil</title>
+
+
 </head>
 <body>
     <header>
         <div class="logoEni">
+            <div class="logo">
             <img id="logoEni" src="/Projet-web-1step/front/assets/logo.png" alt="image du logo de ecole eni">
+            <h3>ECOLE <br>INFORMATIQUE</h3>
+            </div>
+
+            <h1 id="titrePage">Promos 2603</h1>
         </div>
 
-        <h1 id="titrePage">Promo 2603</h1>
+        
 
         <nav>
             <div class="menu">
-            <a href="#" id="Burguer-btn">&#9776</a>
-            <ul>
+            <a href="#" id="burger">&#9776</a>
+            <ul id="nav">
                 <li> <a href="index.html">Accueil</a></li>
                 <li> <a href="preferences.html">Préferences</a></li>
                 <li> <a href="carte.html">Carte</a></li>
@@ -30,7 +40,7 @@
             
             <form action="" id="affichageAcc">
                 <p>Type affichage</p>
-                <div class="type affichage">
+                <div class="type_affichage">
                     <input type="radio" name="TypeAffichages" id="liste" value="liste" checked>
                     <label for="liste">Liste</label>
 
@@ -59,19 +69,16 @@
         
         </table>
     -->
-
+    
         <div id="listesApprenants"></div>
 
         <div id ="cardsApprenants"></div>
 
+    <!--  boite dialogue pour details etudiants -->  
         <dialog id="modal">
-            <div class="fr-modal__header">
-                        <button aria-controls="modal" title="Fermer" type="button"  id="btn-fermer">Fermer</button>
 
-            </div>
-            <div>
-                
-            </div>
+
+
             
         </dialog>
 
@@ -81,7 +88,7 @@
             <div id="map"></div>
   
 
-    </main>
+    </main> 
 
   <footer></footer>
 
@@ -91,7 +98,11 @@
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
     <script src="/Projet-web-1step/front/static/script.js" type="module"></script>
-     <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="/Projet-web-1step/front/static/modal.js" type="module"></script>
+    <script type="module" src="/Projet-web-1step/front/static/button.js"></script>
+    <script type="module" src="/Projet-web-1step/front/static/clairSombre.js"></script>
+
+
 
 
 </body>

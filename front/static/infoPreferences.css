@@ -1,0 +1,153 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5vw;
+}
+
+article {
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+        width: 45vw;
+        border-radius: 15px;
+
+}
+#decription-info{
+    padding-inline: 10px;
+}
+#liens-utiles{
+    padding-inline: 10px;
+}
+aside {
+
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+    width: fit-content;
+    
+}
+aside a {
+    box-shadow: rgba(57, 57, 119, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+    margin: 10px;
+}
+ol{
+    list-style: none;
+
+}
+li {
+    gap: 5vh;
+}
+
+
+
+
+/*Preference*/
+
+#themesDuSite{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+     padding: 3vh;
+
+
+    gap: 10vh;
+
+}
+
+.choixTheme label {
+    padding-right: 50px;
+}
+
+.choixTheme select {
+    font-size: 1.1rem;
+}
+
+.choixAffichages form{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+    width: 50vw;
+}
+
+.choixAffichages form p {
+    font-size: 1.3rem;
+}
+
+.bouttonss {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3vh;
+    width: 30vw;
+
+}
+.bouttonss a {
+    text-align: center;
+    font-size: 1.2rem;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #edf3f8;
+    color: black;
+    padding: 8px 12px;
+    border-radius: 6px;
+
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    
+}
+
+#enregisterTheme{
+        font-size: 1.2rem;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #40f509;
+    color: black;
+    padding: 8px 12px;
+    border-radius: 6px;
+
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+@media screen and (max-width:992px) {
+
+
+section {
+    flex-direction: column;
+}
+article {
+    width: 75vw;
+}
+aside{
+    flex-direction: column;
+}
+ol {
+    display: flex;
+    flex-direction: row;
+    width:70vw;
+    flex-wrap: wrap;
+}
+
+#themesDuSite{
+    width: 80vw;
+}
+
+.bouttonss {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    width: 60vw;
+
+}
+}

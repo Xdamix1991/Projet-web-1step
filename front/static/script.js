@@ -1,6 +1,7 @@
 const divAffichage = document.getElementById('listesApprenants')
 const divAffichageCards = document.getElementById('cardsApprenants')
 const affichageAcceuil = document.getElementById('affichageAcc')
+import { affichageModal } from "./modal.js";
 
 let etudiants;
 
@@ -62,6 +63,7 @@ table.innerHTML = `
                     <th>Nom</th>
                     <th>Prénom</th>
                     <th>Ville</th>
+                    <th>Coordonnées</th>
                     <th>Détails</th>
                 </tr>
             </thead>
@@ -72,14 +74,23 @@ const tbody = table.querySelector('#table-body')
 etudiants.forEach(etudiant => {
     const tr = document.createElement('tr')
     tr.innerHTML =`
+            
                 <td>${etudiant.nom}</td>
                 <td>${etudiant.prenom}</td>
                 <td>${etudiant.ville}</td>
-                <td>${etudiant.coordonnees.latitude, etudiant.coordonnees.longitude}</td>
-                <td><a href="#">details</a></td>
+                <td>${etudiant.coordonnees.latitude}, ${etudiant.coordonnees.longitude}</td>
+                <td><button class="details-btn">Détails</button></td>
     
     `
     tbody.appendChild(tr)
+
+    //affichage modale
+    tr.querySelector('.details-btn').addEventListener('click', () => {
+        
+        affichageModal(etudiant)
+        affichePosition(etudiant);
+
+    })
 });
 
 divAffichage.appendChild(table)
@@ -97,21 +108,33 @@ etudiants.forEach(etudiant => {
 
     const cards = document.createElement('article')
     cards.innerHTML = `
-                <header>
-                    <div>
+            <div class="informationEtudiant" id="${etudiant.id}">
+                <div class="header">
+                    <div class="nom">
                         <h3>${etudiant.nom}</h3>
                         <h4>${etudiant.prenom}</h4>
                     </div>
                     <img id="avatar" src="/Projet-web-1step/front/assets/avatar.png" alt="">
-                </header>
+                </div>
 
             <div class="content">
-                <p>${etudiant.anecdotes}</p>
-                <a href="#">details</a>
+                <div>
+                    <p>${etudiant.anecdotes}</p>
+                </div>
+                <div>
+                    <a href="#" id = "btn_open">details</a>
+                </div>
             </div>
+        </div>
     `
 
+
 divAffichageCards.appendChild(cards)
+//affichage de details
+cards.querySelector('#btn_open').addEventListener('click', () => {
+    affichageModal(etudiant)
+})
+
 })
 
 }
@@ -144,7 +167,7 @@ console.log(etudiants)
 
 
 
-//lacarte 
+//lacarte intégration code fourni
 
 let map = L.map('map', {
     center: [51.505, -0.09],
@@ -155,3 +178,24 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
+
+L.marker([51.505, -0.09])
+    .addTo(map)
+    .bindPopup("repére")
+    .openPopup();
+
+
+    // fonction pour integration coordonnées json
+function affichePosition(etudiant) {
+
+    const lat = etudiant.coordonnees.latitude
+    const long = etudiant.coordonnees.longitude
+    map.setView([lat, long], 18)
+
+    L.marker([lat, long])
+        .addTo(map)
+        .bindPopup('ici')
+        .openPopup()
+    
+}
+

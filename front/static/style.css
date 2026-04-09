@@ -1,24 +1,233 @@
-article {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid;
-    width: 10vw;
-    margin: 1vh;
+/* Variable*/
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --header-bg: #0056b3;
+  --header-text: #ffffff;
+  --link-bg: #edf3f8;
+  --link-text: #000000;
 }
-article header {
+
+/*  Mode sombre */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121212;
+    --text: #ffffff;
+    --header-bg: #0a3d7a;
+    --header-text: #ffffff;
+    --link-bg: #1e293b;
+    --link-text: #ffffff;
+  }
+}
+
+/* dark mode */
+.dark {
+  --bg: #121212;
+  --text: #ffffff;
+  --header-bg: #0a3d7a;
+  --header-text: #ffffff;
+  --link-bg: #1e293b;
+  --link-text: #ffffff;
+}
+
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+
+h1 {
+  font-size: 2.5rem;
+  color: var(--header-text);
+}
+h2 {
+  font-size: 2rem;
+}
+header h3 {
+  color: var(--header-text);
+}
+
+
+p {
+  font-size: 1.5rem;
+}
+
+a {
+  font-size: 1.2rem;
+  display: inline-block;
+  text-decoration: none;
+  background-color: var(--link-bg);
+  color: var(--link-text);
+  padding: 8px 12px;
+  border-radius: 6px;
+
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+              rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+              rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+label {
+  font-size: 1.4rem;
+}
+
+/* MAP leaflet */
+#map {
+  height: 400px;
+  min-height: 400px;
+  width: 70vw;
+}
+
+
+header {
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  background-color: var(--header-bg);
+  justify-content: space-between;
+  font-family: Arial, sans-serif;
+}
+
+
+.logoEni {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 15px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+}
+
+.logoEni img {
+  width: 80px;
+  height: 80px;
+}
+
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#affichageAcc {
+  color: var(--header-text);
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  margin: 15px;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.menu ul li {
+  margin: 10px;
+  padding: 5px;
+  border: 0 1 solid;
+}
+
+li a {
+  color: var(--link-text);
+  text-decoration: none;
+}
+
+#burger {
+  display: none;
+}
+  #affichageAcc {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    gap: 3vw;
+  }
+
+/* le main */
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7vh;
+  margin-top: 5vh;
 }
 
-#avatar {
-    width:1.5vw;
-    height: 1.5vw;
+/* header button */
+header a {
+  font-size: 1.2rem;
+  display: inline-block;
+  text-decoration: none;
+  background-color: var(--link-bg);
+  color: var(--link-text);
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
 }
 
-#map {
-    height: 400px;
-    min-height: 400px;
-    width: 600px;
+/* tablette et grand smartphone*/
+@media screen and (min-width:576px) and (max-width: 992px) {
+
+  #affichageAcc {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3vw;
+  }
+
+  .menu ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    gap: 1px;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  header h1 {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .logoEni {
+    margin: 15px;
+  }
+}
+
+/* petit smartphone*/
+@media screen and (max-width:576px) {
+
+  .menu ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .logoEni {
+    margin: 15px;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  header h1 {
+    text-align: center;
+    font-size: 2rem;
+  }
 }
