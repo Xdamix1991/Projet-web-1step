@@ -37,6 +37,27 @@ async function init() {
 }
 init()
 
+
+//verification de type d affichage souhaité
+function typeAffichage () {
+
+    const affichages = localStorage.getItem('affichage')
+    console.log(affichages)
+
+    //netoie pour eviter la duplicatiuon
+
+    divAffichage.innerHTML = "";
+    divAffichageCards.innerHTML = "";
+
+    if (affichages == "cartes") {
+        affichageCards ()
+    }
+   else {
+        affichageListe()
+    }
+
+}
+
 //type d affichage Set
 
 affichageAcceuil.addEventListener('change', () => {
@@ -143,25 +164,7 @@ cards.querySelector('#btn_open').addEventListener('click', () => {
 
 }
 
-//verification de type d affichage souhaité
-function typeAffichage () {
 
-    const affichages = localStorage.getItem('affichage')
-    console.log(affichages)
-
-    //netoie pour eviter la duplicatiuon
-
-    divAffichage.innerHTML = "";
-    divAffichageCards.innerHTML = "";
-
-    if (affichages == "cartes") {
-        affichageCards ()
-    }
-   else {
-        affichageListe()
-    }
-
-}
 
 //verification de type d affichage souhaité
 

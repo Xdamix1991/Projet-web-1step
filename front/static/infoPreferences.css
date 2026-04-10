@@ -13,7 +13,7 @@ section{
 }
 
 article {
-        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(83, 83, 83) 0px 0px 0px 1px inset;
         width: 45vw;
         border-radius: 15px;
 
@@ -27,12 +27,12 @@ article {
 aside {
 
     border-radius: 15px;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(146, 146, 146) 0px 0px 0px 1px inset;
     width: fit-content;
     
 }
 aside a {
-    box-shadow: rgba(57, 57, 119, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+    box-shadow: rgb(11, 11, 15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
     margin: 10px;
 }
 ol{
@@ -55,7 +55,7 @@ li {
     justify-content: center;
     align-items: center;
     width: 50vw;
-     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.726);
      padding: 3vh;
 
 
@@ -117,7 +117,7 @@ li {
     padding: 8px 12px;
     border-radius: 6px;
 
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgb(0, 0, 0) 0px -3px 0px inset;
 }
 
 @media screen and (max-width:992px) {
